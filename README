@@ -1,0 +1,1 @@
+Create an .env file with MONGO_URI, PORT and JWT_SECRET
