@@ -11,10 +11,8 @@ const isAuthenticated = async (req, res, next) => {
         next();
       } catch (err) {
         if (err.name === "TokenExpiredError") {
-          // Token is expired, handle it accordingly
           return res.status(401).json({ message: "Token has expired" });
         } else {
-          // Other verification issues, handle them accordingly
           return res.status(401).json({ message: "Token verification failed" });
         }
       }

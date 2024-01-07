@@ -12,7 +12,17 @@ const getNotes = async (req, res) => {
   }
 };
 
-const getNoteById = async (req, res) => {};
+const getNoteById = async (req, res) => {
+  try {
+    const userId = req.id;
+    const { id } = req.params;
+    const notes = await Note.findOne({ userId });
+    const note = notes.notes.find((note) => note._id == id);
+    return res.status(200).json({ note });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
 const createNote = async (req, res) => {
   try {
     const { title, note } = req.body;
@@ -53,4 +63,4 @@ const createNote = async (req, res) => {
   }
 };
 
-module.exports = { getNotes, createNote };
+module.exports = { getNotes, createNote, getNoteById };
