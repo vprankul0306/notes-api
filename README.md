@@ -36,13 +36,25 @@ An API to fetch, create, search and share notes. Authentication also works along
 #### Get a specific note
 
 ```http
-  GET /api/notes/${id}
+  GET /api/notes/:id
 ```
 
 #### Create Note
 
 ```http
   POST /api/notes
+```
+
+#### Edit a note
+
+```http
+  PUT /api/notes/:id
+```
+
+#### Delete a note
+
+```http
+  DELETE /api/notes/:id
 ```
 
 ## Environment Variables
